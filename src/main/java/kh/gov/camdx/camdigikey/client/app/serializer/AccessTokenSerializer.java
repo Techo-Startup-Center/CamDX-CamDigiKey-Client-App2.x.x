@@ -1,8 +1,8 @@
 package kh.gov.camdx.camdigikey.client.app.serializer;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 
 @Data
 public class AccessTokenSerializer {

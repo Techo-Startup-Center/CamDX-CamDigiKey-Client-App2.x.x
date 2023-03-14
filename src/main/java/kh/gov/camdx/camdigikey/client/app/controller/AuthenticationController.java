@@ -1,5 +1,7 @@
 package kh.gov.camdx.camdigikey.client.app.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import kh.gov.camdx.camdigikey.client.CamDigiKeyClient;
 import kh.gov.camdx.camdigikey.client.app.serializer.*;
 import kh.gov.camdx.camdigikey.client.exception.InvalidTokenSignatureException;
@@ -8,8 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 

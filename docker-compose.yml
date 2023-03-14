@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   camdigikey-client-app:
-    image: camdigikey-client-app:1.0
+    image: camdigikey-client-app:2.0
     build:
       context: ./app
       dockerfile: Dockerfile
