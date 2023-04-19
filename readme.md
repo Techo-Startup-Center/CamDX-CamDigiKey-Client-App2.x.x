@@ -1,14 +1,16 @@
-CamDigiKey validation micro service is a local micro service.
+How to recompile and run CamDigiKey client app
 
-Requirement:
-1. Install JDK
-2. Window : mvnw.cmd -pl app -am spring-boot:run 
-   Linux: ./mvn -pl app -am spring-boot:run 
+How to run:
+1. Install JDK 17 for compilation
+2. Load client library to local maven repository: camdigikey_linux_installer.sh or camdigikey_win_installer.bat
+3. Compile and package project: mvn clean package
+4. Run jar in folder target: java -jar app-2.0.0.jar
+5. Test your application on port: 9005
+6. Enjoy!
 
-
-
-**Usage**
-Validation JWT request: 
-POST http://localhost:9005 
-Request object : {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJFQ0RTQVNIQTUxMiJ9.eyJsYXN0X25hbWVfa2giOiJsYXN0X25hbWVfa2giLCJnZW5kZXIiOiJNIiwiaXNzIjoiQ2FtRFgtQ2FtRGlnaUtleSIsInRlbGVwaG9uZSI6Iis4NTUxMjM0NTY3ODkiLCJwZXJzb25hbF9jb2RlIjoiMTIzNDU2Nzg5MDEyIiwibmJmIjoxNTgyMTg1NDMxODU2LCJmaXJzdF9uYW1lX2VuIjoiZmlyc3RfbmFtZV9lbiIsImRvbWFpbiI6InJlZ2lzdHJhdGlvbnNlcnZpY2VzLmdvdi5raCIsImxhc3RfbmFtZV9lbiI6Imxhc3RfbmFtZV9lbiIsImZpcnN0X25hbWVfa2giOiJmaXJzdF9uYW1lX2toIiwiZXhwIjoxNTgyMTg1NTE4MjU2LCJpYXQiOjE1ODIxODU0MzE4NTYsImVtYWlsIjoidGVzdF9qd3RAY2FtZHguaW8iLCJqdGkiOiIzYmIzOWIwMS0xODEyLTQ3NDMtYWE1YS1jYjRkZTc1YjBlYTQifQ==.MIGHAkIBDSSNvDo1iGw20h0FQG6ELm+0kZHfmYEW57S6IH00RgoporKeMT+h2bRxDhXMUbUI98hh+XubpE84GyKTIIt6HpMCQWnOlEtDu+OD7qAFwL1v+qvaovRJpFkQ4M65Cy3c7KDmSsiWTVyS45vwujCk3+wumAud10wkhKKEQWds0BUwTFGG"}
-Response object: true/false
+How to run in local docker:
+1. Install JDK 17 for compilation
+2. Load client library to local maven repository: camdigikey_linux_installer.sh or camdigikey_win_installer.bat
+3. Compile and package to docker local: mvn clean package jib:dockerBuild
+4. Run container from image in your docker engine port: 9005
+5. Enjoy!
