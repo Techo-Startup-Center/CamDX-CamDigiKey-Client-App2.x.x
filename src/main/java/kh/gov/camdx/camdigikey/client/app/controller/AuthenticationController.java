@@ -5,11 +5,9 @@ import jakarta.validation.Valid;
 import kh.gov.camdx.camdigikey.client.CamDigiKeyClient;
 import kh.gov.camdx.camdigikey.client.app.serializer.*;
 import kh.gov.camdx.camdigikey.client.exception.InvalidTokenSignatureException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -17,8 +15,12 @@ import java.util.HashMap;
 @RestController
 @RequestMapping
 public class AuthenticationController {
-    @Autowired
-    private CamDigiKeyClient camDigiKeyClient;
+
+    private final CamDigiKeyClient camDigiKeyClient;
+
+    public AuthenticationController(CamDigiKeyClient camDigiKeyClient) {
+        this.camDigiKeyClient = camDigiKeyClient;
+    }
 
     @PostMapping("/")
     public ResponseEntity<HashMap<String, Object>> validateJwtToken(HttpServletRequest httpServletRequest, @Valid @RequestBody JwtValidationSerializer jwtValidationSerializer) {
@@ -56,7 +58,7 @@ public class AuthenticationController {
 
     @PostMapping("/lookup-user-profile")
     public Object lookupUserProfile(@Valid @RequestBody LookupUserProfileSerializer lookupUserProfileSerializer) throws InvalidTokenSignatureException {
-       return new ResponseEntity<>(camDigiKeyClient.lookupUserProfile(lookupUserProfileSerializer.getToken(), lookupUserProfileSerializer.getPersonalCode()), HttpStatus.OK);
+        return new ResponseEntity<>(camDigiKeyClient.lookupUserProfile(lookupUserProfileSerializer.getToken(), lookupUserProfileSerializer.getPersonalCode()), HttpStatus.OK);
     }
 
     @PostMapping("/verify-user-profile")

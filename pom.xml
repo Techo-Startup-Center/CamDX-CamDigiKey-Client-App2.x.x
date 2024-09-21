@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.3.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>kh.gov.camdx.camdigikey.client.app</groupId>
@@ -22,7 +22,8 @@
             <groupId>kh.gov.camdx.camdigikey</groupId>
             <artifactId>client</artifactId>
             <version>2.0.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/client-2.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,8 +61,8 @@
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.70</version>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>1.78.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -69,7 +70,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.0.4</version>
                 <executions>
                     <execution>
                         <goals>
@@ -81,7 +81,7 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.4.3</version>
                 <configuration>
                     <container>
                         <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
