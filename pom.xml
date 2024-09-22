@@ -14,7 +14,6 @@
     <artifactId>app</artifactId>
     <properties>
         <java.version>17</java.version>
-        <container.name>camdigikey-client-app</container.name>
         <container.port>9005</container.port>
     </properties>
     <dependencies>
@@ -93,7 +92,7 @@
                         <image>amazoncorretto:17-alpine-jdk</image>
                     </from>
                     <to>
-                        <image>${container.name}</image>
+                        <image>registry.camdx.gov.kh/camdigikey/camdigikey2-client-app-dev:2.0.0</image>
                     </to>
                 </configuration>
             </plugin>
