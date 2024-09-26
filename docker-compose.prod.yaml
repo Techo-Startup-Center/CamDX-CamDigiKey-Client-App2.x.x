@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+
+  # CamDigiKey Client Service
+  camdigikey_client_app:
+    container_name: camdigikey_client_app
+    restart: always
+    environment:
+      - 'JAVA_TOOL_OPTIONS=-Djava.awt.headless=true -Dfile.encoding=UTF-8 -Xmx6144M -Xms1024M -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact'
+    image: registry.camdx.gov.kh/camdigikey/camdigikey2-client-app-prod:2.0.0
+    volumes:
+      - ~/.m2:/root/.m2
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/environment:/etc/environment:ro
+      - /etc/hosts:/etc/hosts:ro
+      - ~/logs:/var/log/camdigikey
+      - ./tls:/app/resources/tls
+    ports:
+      - "9005:9005"
+    env_file:
+      - ./.env
